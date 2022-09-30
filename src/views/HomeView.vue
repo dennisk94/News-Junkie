@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Home Page</h1>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { fetchTopHeadlines } from "../composables/fetchTopHeadlines";
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+  setup() {
+    // fetchTopHeadlines();
+    // getTopHeadlines();
+    // const req =
+    //   "https://newsapi.org/v2/top-headlines?country=us&apiKey=91ee0a843cd04e0d84abf0eea02b880e";
+    // console.log(req);
+    // fetch(
+    //   "https://newsapi.org/v2/top-headlines?country=us&apiKey=91ee0a843cd04e0d84abf0eea02b880e"
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data.articles[0].content));
+  },
+  name: "HomeView",
+  components: {},
+};
 </script>
