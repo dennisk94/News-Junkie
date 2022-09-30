@@ -14,9 +14,7 @@
         <li class="list-item">Sports</li>
       </a>
       <a href="/">
-        <li class="list-item search">
-          <span class="search-icon"><BIconSearch /></span>Search
-        </li>
+        <li class="list-item search">Search</li>
       </a>
     </ul>
   </nav>
@@ -73,11 +71,44 @@ nav ul a:hover {
 .list-item:hover {
   background-color: var(--nav-item-hover);
 }
-.search {
-  display: flex;
-  justify-content: center;
-}
-.search-icon {
-  margin-right: 0.5rem;
+@media (min-width: 37.5em) {
+  .nav {
+    display: inline-block;
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+    right: 0;
+    background-color: var(--nav-bgc);
+    padding: 0;
+  }
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .list-item {
+    padding: 0.5rem;
+  }
+  @media (min-width: 50em) {
+    .nav {
+      top: 0.4rem;
+      left: 10rem;
+      padding: 0;
+    }
+    ul {
+      align-items: flex-end;
+    }
+    .list-item {
+      font-size: 1rem;
+    }
+  }
+  @media (min-width: 62.5em) {
+    .nav {
+      top: 0.5rem;
+      left: 15rem;
+    }
+    .list-item {
+      font-size: 1.2rem;
+    }
+  }
 }
 </style>
