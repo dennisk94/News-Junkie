@@ -3,10 +3,10 @@
     <div class="logo">
       <h1 class="app-name">News Junkie</h1>
     </div>
-    <div v-if="!isActive">
+    <div v-if="!isActive" class="hamburger-icon">
       <BIconList class="hamburger" @click="toggleMenu" />
     </div>
-    <div v-if="isActive">
+    <div v-if="isActive" class="hamburger-icon">
       <BIconFilterRight class="hamburger" @click="toggleMenu" />
     </div>
     <Nav :isActive="isActive" />
@@ -63,5 +63,18 @@ export default {
 }
 .hamburger:hover {
   color: var(--header-hover);
+}
+.hamburger-icon {
+  display: inline-block;
+}
+@media (min-width: 37.5em) {
+  .hamburger-icon {
+    display: none;
+  }
+}
+@media (min-width: 62.5em) {
+  .app-name {
+    font-size: 1.7rem;
+  }
 }
 </style>
