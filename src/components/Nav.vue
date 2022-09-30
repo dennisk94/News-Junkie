@@ -14,15 +14,22 @@
         <li class="list-item">Sports</li>
       </a>
       <a href="/">
-        <li class="list-item">General</li>
+        <li class="list-item search">
+          <span class="search-icon"><BIconSearch /></span>Search
+        </li>
       </a>
     </ul>
   </nav>
 </template>
 
 <script>
+import { BIconSearch } from "bootstrap-icons-vue";
+
 export default {
   props: ["isActive"],
+  components: {
+    BIconSearch,
+  },
   setup() {
     return {};
   },
@@ -65,5 +72,12 @@ nav ul a:hover {
 }
 .list-item:hover {
   background-color: #50c550;
+}
+.search {
+  display: flex;
+  justify-content: center;
+}
+.search-icon {
+  margin-right: 0.5rem;
 }
 </style>
