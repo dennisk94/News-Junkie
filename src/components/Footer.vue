@@ -56,4 +56,23 @@ export default {
   margin: 1rem 0 0 0;
   color: white;
 }
+@media (min-width: 37.5em) {
+  .categories {
+    justify-content: center;
+  }
+  .left,
+  .right {
+    flex-direction: row;
+  }
+  .left a,
+  .right a {
+    margin: 0.5rem;
+  }
+}
+@media (min-width: 50em) {
+  .left a,
+  .right a {
+    font-size: 1rem;
+  }
+}
 </style>
