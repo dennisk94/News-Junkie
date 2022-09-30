@@ -46,7 +46,7 @@ export default {
 .active {
   display: inline-block;
   position: absolute;
-  top: 4rem;
+  top: 3.5rem;
   left: 0;
   right: 0;
   background-color: var(--nav-bgc);
@@ -60,7 +60,7 @@ nav ul a {
   color: var(--white);
 }
 nav ul a:hover {
-  color: #e6e6e6;
+  color: var(--anchor-item-hover);
 }
 .list-item {
   list-style: none;
@@ -71,7 +71,7 @@ nav ul a:hover {
   transition: all 0.2s ease-in-out;
 }
 .list-item:hover {
-  background-color: #50c550;
+  background-color: var(--nav-item-hover);
 }
 .search {
   display: flex;

@@ -4,7 +4,15 @@
     --primary: #189118;
     --nav-bgc: #40a340;
     --white: #fff;
+    --header-hover: #e6e6e6;
+    --anchor-item-hover: #e6e6e6;
+    --nav-item-hover: #50c550;
     /* --primary: #4f515a;
     --secondary: #ebebeb;
     --warning: #da0f41; */
   }
+
+body {
+    margin: 0;
+    padding: 0;
+}
