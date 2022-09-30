@@ -40,6 +40,7 @@ export default {
   color: var(--white);
   font-size: 1.2rem;
   padding: 1rem;
+  z-index: 10;
 }
 .active {
   display: inline-block;
@@ -52,6 +53,7 @@ export default {
 ul {
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 nav ul a {
   text-decoration: none;

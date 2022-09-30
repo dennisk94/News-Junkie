@@ -31,6 +31,7 @@ export default {
 .footer {
   background-color: var(--nav-bgc);
   padding: 1rem 0;
+  text-align: center;
 }
 .categories {
   display: flex;

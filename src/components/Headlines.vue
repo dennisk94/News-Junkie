@@ -9,6 +9,32 @@
         <p class="attribution">BBC</p>
       </div>
     </div>
+    <div class="featured-articles">
+      <a href="/" class="featured-article">
+        <h3 class="featured-article-title">
+          Featured article title goes here. Thank you very much.
+        </h3>
+        <p class="featured-article-attribution">BBC</p>
+      </a>
+      <a href="/" class="featured-article">
+        <h3 class="featured-article-title">
+          Featured article title goes here. Thank you very much.
+        </h3>
+        <p class="featured-article-attribution">BBC</p>
+      </a>
+      <a href="/" class="featured-article">
+        <h3 class="featured-article-title">
+          Featured article title goes here. Thank you very much.
+        </h3>
+        <p class="featured-article-attribution">BBC</p>
+      </a>
+      <a href="/" class="featured-article">
+        <h3 class="featured-article-title">
+          Featured article title goes here. Thank you very much.
+        </h3>
+        <p class="featured-article-attribution">BBC</p>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -47,6 +73,31 @@ export default {
   color: var(--white);
 }
 .attribution::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 14px;
+  margin-right: 0.3rem;
+  background-color: var(--primary);
+}
+.featured-articles {
+  margin: 0 0.5rem 3rem 0.5rem;
+}
+.featured-article {
+  text-decoration: none;
+  color: var(--black);
+}
+.featured-article::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin: 1rem 0;
+  background-color: var(--light-gray);
+}
+.featured-article-title {
+  font-size: 1rem;
+}
+.featured-article-attribution::before {
   content: "";
   display: inline-block;
   width: 5px;

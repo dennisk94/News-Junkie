@@ -2,7 +2,9 @@
 :root {
     --primary: #189118;
     --nav-bgc: #40a340;
+    --black: #000;
     --white: #fff;
+    --light-gray: #d3d3d3;
     --header-hover: #e6e6e6;
     --anchor-item-hover: #e6e6e6;
     --nav-item-hover: #50c550;
