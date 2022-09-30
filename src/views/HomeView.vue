@@ -1,13 +1,17 @@
 <template>
   <div class="home">
-    <h1>Home Page</h1>
+    <Headlines />
   </div>
 </template>
 
 <script>
 import { fetchTopHeadlines } from "../composables/fetchTopHeadlines";
+import Headlines from "@/components/Headlines.vue";
 
 export default {
+  components: {
+    Headlines,
+  },
   setup() {
     // fetchTopHeadlines();
     // getTopHeadlines();
@@ -20,7 +24,5 @@ export default {
     //   .then((response) => response.json())
     //   .then((data) => console.log(data.articles[0].content));
   },
-  name: "HomeView",
-  components: {},
 };
 </script>
