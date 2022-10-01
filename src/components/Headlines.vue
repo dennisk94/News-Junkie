@@ -11,24 +11,28 @@
     </div>
     <div class="featured-articles">
       <a href="/" class="featured-article">
+        <img :src="placeholder" alt="title" />
         <h3 class="featured-article-title">
           Featured article title goes here. Thank you very much.
         </h3>
         <p class="featured-article-attribution">BBC</p>
       </a>
       <a href="/" class="featured-article">
+        <img :src="placeholder" alt="title" />
         <h3 class="featured-article-title">
           Featured article title goes here. Thank you very much.
         </h3>
         <p class="featured-article-attribution">BBC</p>
       </a>
       <a href="/" class="featured-article">
+        <img :src="placeholder" alt="title" />
         <h3 class="featured-article-title">
           Featured article title goes here. Thank you very much.
         </h3>
         <p class="featured-article-attribution">BBC</p>
       </a>
       <a href="/" class="featured-article">
+        <img :src="placeholder" alt="title" />
         <h3 class="featured-article-title">
           Featured article title goes here. Thank you very much.
         </h3>
@@ -94,6 +98,9 @@ export default {
   margin: 1rem 0;
   background-color: var(--light-gray);
 }
+.featured-article img {
+  display: none;
+}
 .featured-article-title {
   font-size: 1rem;
 }
@@ -104,5 +111,56 @@ export default {
   height: 14px;
   margin-right: 0.3rem;
   background-color: var(--primary);
+}
+@media (min-width: 37.5em) {
+  .featured-articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 1rem;
+    margin: 1rem 0.5rem 3rem 0.5rem;
+  }
+  .featured-article {
+    position: relative;
+    width: 45%;
+  }
+  .featured-article img {
+    display: block;
+    width: 100%;
+  }
+  .featured-article::after {
+    display: none;
+  }
+  .featured-article-title,
+  .featured-article-attribution {
+    position: absolute;
+    margin: 0 0.5rem;
+    z-index: 5;
+  }
+  .featured-article-title {
+    bottom: 4rem;
+    color: var(--white);
+  }
+  .featured-article-attribution {
+    bottom: 0.3rem;
+    color: var(--white);
+  }
+}
+@media (min-width: 62.5em) {
+  .headlines {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    max-width: 95%;
+    column-gap: 1rem;
+  }
+  .featured {
+    width: 50%;
+  }
+  .featured-articles {
+    width: 50%;
+    margin: 0;
+  }
 }
 </style>
