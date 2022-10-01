@@ -2,6 +2,9 @@
   <div class="home">
     <Headlines />
     <Category />
+    <Category />
+    <Category />
+    <CategorySports />
   </div>
 </template>
 
@@ -9,11 +12,13 @@
 import { fetchTopHeadlines } from "../composables/fetchTopHeadlines";
 import Headlines from "@/components/Headlines.vue";
 import Category from "../components/Category.vue";
+import CategorySports from "../components/CategorySports.vue";
 
 export default {
   components: {
     Headlines,
     Category,
+    CategorySports,
   },
   setup() {
     // fetchTopHeadlines();
