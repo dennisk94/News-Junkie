@@ -60,7 +60,8 @@ export default {
 
 <style scoped>
 .category {
-  margin: 2rem 0.5rem;
+  margin: 2rem 0;
+  padding: 0 0.5rem;
 }
 .article img {
   display: none;
