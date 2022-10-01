@@ -129,7 +129,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-    margin: 1rem 0.5rem 3rem 0.5rem;
+    margin: 1rem 0.5rem;
   }
   .article {
     width: 90%;
@@ -158,6 +158,17 @@ export default {
   .articles {
     width: 100%;
     margin: 0;
+  }
+  .category-sports-img {
+    object-fit: cover;
+    height: 65vh;
+  }
+  .category-sports {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 53vh;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 </style>
