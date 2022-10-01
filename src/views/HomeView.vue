@@ -1,16 +1,19 @@
 <template>
   <div class="home">
     <Headlines />
+    <Category />
   </div>
 </template>
 
 <script>
 import { fetchTopHeadlines } from "../composables/fetchTopHeadlines";
 import Headlines from "@/components/Headlines.vue";
+import Category from "../components/Category.vue";
 
 export default {
   components: {
     Headlines,
+    Category,
   },
   setup() {
     // fetchTopHeadlines();
@@ -26,3 +29,9 @@ export default {
   },
 };
 </script>
+<style>
+.home {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+</style>

@@ -74,7 +74,8 @@ export default {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
-  color: var(--white);
+  color: var(--featured-attribution);
+  text-transform: uppercase;
 }
 .attribution::before {
   content: "";
@@ -143,7 +144,7 @@ export default {
   }
   .featured-article-attribution {
     bottom: 0.3rem;
-    color: var(--white);
+    color: var(--featured-attribution);
   }
 }
 @media (min-width: 62.5em) {
