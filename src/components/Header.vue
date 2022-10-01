@@ -68,8 +68,16 @@ export default {
   display: inline-block;
 }
 @media (min-width: 37.5em) {
+  .header {
+    justify-content: center;
+  }
   .hamburger-icon {
     display: none;
+  }
+}
+@media (min-width: 50em) {
+  .header {
+    justify-content: space-between;
   }
 }
 @media (min-width: 62.5em) {
