@@ -58,7 +58,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .category {
   margin: 2rem 0;
   padding: 0 0.5rem;

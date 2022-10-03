@@ -65,7 +65,7 @@ export default {
 @media (min-width: 50em) {
   .search-input {
     margin: 3rem auto 2rem auto;
-    max-width: 1000px;
+    max-width: 1034px;
   }
 }
 @media (min-width: 62.5em) {
