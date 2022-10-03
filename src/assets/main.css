@@ -12,6 +12,8 @@
     --attribution: #767676;
     --category-sports-bgc: #ffffff94;
     --category-sports-attribution: #616161;
+    --input-bgc: #cacaca;
+    --input-focus: #ebebeb;
   }
 
 body {

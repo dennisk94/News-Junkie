@@ -32,10 +32,10 @@ export default {
   width: 70%;
   font-size: 1.3rem;
   padding: 1rem 1rem;
-  background-color: #cacaca;
+  background-color: var(--input-bgc);
 }
 .input:focus {
-  background-color: #ebebeb;
+  background-color: var(--input-focus);
 }
 .search-icon {
   position: absolute;
