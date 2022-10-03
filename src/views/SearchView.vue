@@ -4,14 +4,19 @@
       <input class="input" type="text" placeholder="Search..." />
       <span class="search-icon"><BIconSearch /></span>
     </div>
+    <SearchResults />
   </div>
 </template>
 
 <script>
+import SearchResults from "../components/SearchResults.vue";
 import { BIconSearch } from "bootstrap-icons-vue";
 
 export default {
-  components: { BIconSearch },
+  components: {
+    BIconSearch,
+    SearchResults,
+  },
   setup() {
     return {};
   },
