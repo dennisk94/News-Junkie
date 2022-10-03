@@ -67,7 +67,7 @@ nav ul a:hover {
   transition: all 0.2s ease-in-out;
 }
 .list-item:hover {
-  background-color: var(--nav-item-hover);
+  background-color: var(--secondary);
 }
 @media (min-width: 37.5em) {
   .nav {
