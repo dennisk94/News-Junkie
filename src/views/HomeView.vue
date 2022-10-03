@@ -5,6 +5,9 @@
     <Category />
     <Category />
     <CategorySports />
+    <Category />
+    <Category />
+    <Category />
   </div>
 </template>
 

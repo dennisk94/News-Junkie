@@ -129,6 +129,7 @@ export default {
 @media (min-width: 62.5em) {
   .category {
     width: 100%;
+    padding: 0;
   }
   .articles {
     width: 100%;
