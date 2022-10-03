@@ -21,13 +21,9 @@
 </template>
 
 <script>
-import { BIconSearch } from "bootstrap-icons-vue";
-
 export default {
   props: ["isActive"],
-  components: {
-    BIconSearch,
-  },
+  components: {},
   setup() {
     return {};
   },
