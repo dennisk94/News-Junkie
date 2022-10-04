@@ -146,7 +146,6 @@ export default {
   margin: 0 1rem;
 }
 .articles-wrapper {
-  /* max-width: 800px; */
   margin: 0 auto;
 }
 @media (min-width: 37.5em) {
