@@ -8,7 +8,7 @@
           article title goes here. Thank you very much.
         </h3>
         <p class="article-excerpt">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
+          Lorem ipsum dolor sit amet conectetur, adipisicing elit. Reiciendis
           dolorem aliquid cum aut exercitationem unde.
         </p>
         <div class="article-attribution-container">
