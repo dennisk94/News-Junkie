@@ -1,6 +1,6 @@
 <template>
   <div class="headlines">
-    <div class="featured">
+    <a href="/article/123" class="featured">
       <img :src="placeholder" alt="title" class="featured-img" />
       <div class="info">
         <h2 class="featured-title">
@@ -8,30 +8,30 @@
         </h2>
         <p class="attribution">BBC</p>
       </div>
-    </div>
+    </a>
     <div class="featured-articles">
-      <a href="/" class="featured-article">
+      <a href="/article/123" class="featured-article">
         <img :src="placeholder" alt="title" />
         <h3 class="featured-article-title">
           Featured article title goes here. Thank you very much.
         </h3>
         <p class="featured-article-attribution">BBC</p>
       </a>
-      <a href="/" class="featured-article">
+      <a href="/article/123" class="featured-article">
         <img :src="placeholder" alt="title" />
         <h3 class="featured-article-title">
           Featured article title goes here. Thank you very much.
         </h3>
         <p class="featured-article-attribution">BBC</p>
       </a>
-      <a href="/" class="featured-article">
+      <a href="/article/123" class="featured-article">
         <img :src="placeholder" alt="title" />
         <h3 class="featured-article-title">
           Featured article title goes here. Thank you very much.
         </h3>
         <p class="featured-article-attribution">BBC</p>
       </a>
-      <a href="/" class="featured-article">
+      <a href="/article/123" class="featured-article">
         <img :src="placeholder" alt="title" />
         <h3 class="featured-article-title">
           Featured article title goes here. Thank you very much.

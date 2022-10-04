@@ -4,7 +4,7 @@
     <div class="category-sports">
       <h3 class="category-heading">Category</h3>
       <div class="articles">
-        <a href="/" class="article">
+        <a href="/article/123" class="article">
           <img :src="placeholder" alt="title" />
           <h3 class="article-title">
             article title goes here. Thank you very much.
@@ -18,7 +18,7 @@
             <p class="article-published">05/01/2021</p>
           </div>
         </a>
-        <a href="/" class="article">
+        <a href="/article/123" class="article">
           <img :src="placeholder" alt="title" />
           <h3 class="article-title">
             article title goes here. Thank you very much.
@@ -32,7 +32,7 @@
             <p class="article-published">05/01/2021</p>
           </div>
         </a>
-        <a href="/" class="article">
+        <a href="/article/123" class="article">
           <img :src="placeholder" alt="title" />
           <h3 class="article-title">
             article title goes here. Thank you very much.

@@ -1,6 +1,6 @@
 <template>
   <div class="search-results">
-    <a href="/" class="article">
+    <a href="/article/123" class="article">
       <img :src="placeholder" alt="title" />
       <div class="article-info">
         <h3 class="article-title">
@@ -16,7 +16,7 @@
         </div>
       </div>
     </a>
-    <a href="/" class="article">
+    <a href="/article/123" class="article">
       <img :src="placeholder" alt="title" />
       <div class="article-info">
         <h3 class="article-title">
@@ -32,7 +32,7 @@
         </div>
       </div>
     </a>
-    <a href="/" class="article">
+    <a href="/article/123" class="article">
       <img :src="placeholder" alt="title" />
       <div class="article-info">
         <h3 class="article-title">
@@ -48,7 +48,7 @@
         </div>
       </div>
     </a>
-    <a href="/" class="article">
+    <a href="/article/123" class="article">
       <img :src="placeholder" alt="title" />
       <div class="article-info">
         <h3 class="article-title">
@@ -64,7 +64,7 @@
         </div>
       </div>
     </a>
-    <a href="/" class="article">
+    <a href="/article/123" class="article">
       <img :src="placeholder" alt="title" />
       <div class="article-info">
         <h3 class="article-title">
