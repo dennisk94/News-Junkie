@@ -1,19 +1,19 @@
 <template>
   <nav :class="{ nav: true, active: isActive }">
     <ul>
-      <a href="/">
+      <a href="/category/technology">
         <li class="list-item">Technology</li>
       </a>
-      <a href="/">
+      <a href="/category/business">
         <li class="list-item">Business</li>
       </a>
-      <a href="/">
+      <a href="/category/health">
         <li class="list-item">Health</li>
       </a>
-      <a href="/">
+      <a href="/category/sports">
         <li class="list-item">Sports</li>
       </a>
-      <a href="/">
+      <a href="/search">
         <li class="list-item search">Search</li>
       </a>
     </ul>

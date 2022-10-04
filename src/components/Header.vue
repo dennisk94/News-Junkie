@@ -1,8 +1,8 @@
 <template>
   <header class="header">
-    <div class="logo">
+    <a href="/" class="logo">
       <h1 class="app-name">News Junkie</h1>
-    </div>
+    </a>
     <div v-if="!isActive" class="hamburger-icon">
       <BIconList class="hamburger" @click="toggleMenu" />
     </div>
@@ -46,6 +46,9 @@ export default {
   font-size: 0.7rem;
   background-color: var(--nav-bgc);
   padding: 0 0.5rem;
+}
+.logo {
+  text-decoration: none;
 }
 .app-name {
   transition: all 0.2s ease-in-out;
