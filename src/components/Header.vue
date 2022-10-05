@@ -31,7 +31,6 @@ export default {
 
     const toggleMenu = () => {
       isActive.value = !isActive.value;
-      console.log(isActive);
     };
     return { toggleMenu, isActive };
   },

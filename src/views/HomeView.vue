@@ -31,7 +31,6 @@ export default {
     const { featuredHeadline, headlines, error, fetchHeadlines } =
       fetchTopHeadlines();
     fetchHeadlines();
-    console.log(featuredHeadline, headlines);
     return { featuredHeadline, headlines };
   },
 };

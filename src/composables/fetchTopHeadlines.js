@@ -12,19 +12,16 @@ const fetchTopHeadlines = () => {
             const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us`, {
                 headers: {
                     'Accept': 'application/json',
-                    // 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + APIKEY
                 }
             });
             const newsData = await res.json()
-            console.log( newsData.articles.slice(0, 1));
   
             featuredHeadline.value = newsData.articles.slice(0, 1)
 
             headlines.value = newsData.articles.slice(1, 4)
         } catch (err) {
             error.value = err.message
-            console.log(error.value);
         }
     }
     return { featuredHeadline, headlines, error, fetchHeadlines }
