@@ -8,12 +8,13 @@
     --light-gray: #d3d3d3;
     --header-hover: #e6e6e6;
     --anchor-item-hover: #e6e6e6;
-    --featured-attribution: #d3d3d3;
+    --featured-attribution: #e9e3e3;
     --attribution: #767676;
     --category-sports-bgc: #ffffff94;
     --category-sports-attribution: #616161;
     --input-bgc: #cacaca;
     --input-focus: #ebebeb;
+    --banner-overlay-bgc: #0000004d;
   }
 
 body {
