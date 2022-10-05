@@ -1,15 +1,33 @@
-const APIKEY = "91ee0a843cd04e0d84abf0eea02b880e";
+import { ref } from "vue";
+// const APIKEY = "91ee0a843cd04e0d84abf0eea02b880e";
+const APIKEY = "16f6938cc5c14aa7ab3ef17f1d678d83";
 
-export const fetchTopHeadlines = async () => {
+const fetchTopHeadlines = () => {
+    const featuredHeadline = ref([])
+    const headlines = ref([])
+    const error = ref(null)
 
-    const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us`, {
-        headers: {
-            'Accept': 'application/json',
-            // 'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + APIKEY
+    const fetchHeadlines = async () => {
+        try {
+            const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us`, {
+                headers: {
+                    'Accept': 'application/json',
+                    // 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + APIKEY
+                }
+            });
+            const newsData = await res.json()
+            console.log( newsData.articles.slice(0, 1));
+  
+            featuredHeadline.value = newsData.articles.slice(0, 1)
+
+            headlines.value = newsData.articles.slice(1, 4)
+        } catch (err) {
+            error.value = err.message
+            console.log(error.value);
         }
-    });
-
-    let rawNewsData = await res.json();
-    console.log(rawNewsData.articles);
+    }
+    return { featuredHeadline, headlines, error, fetchHeadlines }
 }
+
+export default fetchTopHeadlines
