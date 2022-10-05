@@ -1,6 +1,10 @@
 <template>
   <div class="headlines">
-    <div v-for="featured in featuredHeadline" :key="featured.title">
+    <div
+      v-for="featured in featuredHeadline"
+      :key="featured.title"
+      class="featured-wrapper"
+    >
       <a :href="'/article/' + featured.title" class="featured">
         <img
           :src="featured.urlToImage"
@@ -14,6 +18,7 @@
           <p class="attribution">{{ featured.source.name }}</p>
         </div>
       </a>
+      <div class="overlay"></div>
     </div>
     <div class="featured-articles">
       <div v-for="headline in headlines" :key="headline.title">
@@ -50,13 +55,15 @@ export default {
 }
 .featured-title {
   position: absolute;
-  bottom: 40%;
+  font-size: 1.2rem;
+  top: -9rem;
   right: 0.5rem;
   left: 0.5rem;
   transform: translateY(-10%);
   color: var(--white);
   text-align: left;
   margin: 0;
+  z-index: 5;
 }
 .attribution {
   position: absolute;
@@ -64,6 +71,7 @@ export default {
   left: 1rem;
   color: var(--featured-attribution);
   text-transform: uppercase;
+  z-index: 5;
 }
 .attribution::before {
   content: "";
@@ -72,6 +80,17 @@ export default {
   height: 14px;
   margin-right: 0.3rem;
   background-color: var(--primary);
+}
+.featured-wrapper {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: var(--banner-overlay-bgc);
 }
 .featured-articles {
   margin: 0 0.5rem 3rem 0.5rem;
@@ -102,6 +121,9 @@ export default {
   background-color: var(--primary);
 }
 @media (min-width: 37.5em) {
+  .headlines {
+    margin-top: 3.4rem;
+  }
   .featured-articles {
     display: flex;
     flex-wrap: wrap;
@@ -133,6 +155,14 @@ export default {
   .featured-article-attribution {
     bottom: 0.3rem;
     color: var(--featured-attribution);
+  }
+}
+@media (min-width: 50em) {
+  .featured-title {
+    font-size: 1.5rem;
+  }
+  .headlines {
+    margin-top: 0;
   }
 }
 @media (min-width: 62.5em) {
