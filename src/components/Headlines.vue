@@ -1,43 +1,30 @@
 <template>
   <div class="headlines">
-    <a href="/article/123" class="featured">
-      <img :src="placeholder" alt="title" class="featured-img" />
-      <div class="info">
-        <h2 class="featured-title">
-          Title of the article goes here. slfksj slkjlf ksjlfkjs dlfjsldfj
-        </h2>
-        <p class="attribution">BBC</p>
-      </div>
-    </a>
+    <div v-for="featured in featuredHeadline" :key="featured.title">
+      <a :href="'/article/' + featured.title" class="featured">
+        <img
+          :src="featured.urlToImage"
+          :alt="featured.title"
+          class="featured-img"
+        />
+        <div class="info">
+          <h2 class="featured-title">
+            {{ featured.title }}
+          </h2>
+          <p class="attribution">{{ featured.source.name }}</p>
+        </div>
+      </a>
+    </div>
     <div class="featured-articles">
-      <a href="/article/123" class="featured-article">
-        <img :src="placeholder" alt="title" />
-        <h3 class="featured-article-title">
-          Featured article title goes here. Thank you very much.
-        </h3>
-        <p class="featured-article-attribution">BBC</p>
-      </a>
-      <a href="/article/123" class="featured-article">
-        <img :src="placeholder" alt="title" />
-        <h3 class="featured-article-title">
-          Featured article title goes here. Thank you very much.
-        </h3>
-        <p class="featured-article-attribution">BBC</p>
-      </a>
-      <a href="/article/123" class="featured-article">
-        <img :src="placeholder" alt="title" />
-        <h3 class="featured-article-title">
-          Featured article title goes here. Thank you very much.
-        </h3>
-        <p class="featured-article-attribution">BBC</p>
-      </a>
-      <a href="/article/123" class="featured-article">
-        <img :src="placeholder" alt="title" />
-        <h3 class="featured-article-title">
-          Featured article title goes here. Thank you very much.
-        </h3>
-        <p class="featured-article-attribution">BBC</p>
-      </a>
+      <div v-for="headline in headlines" :key="headline.title">
+        <a :href="'/article/' + headline.title" class="featured-article">
+          <img :src="headline.urlToImage" :alt="headline.title" />
+          <h3 class="featured-article-title">
+            {{ headline.title }}
+          </h3>
+          <p class="featured-article-attribution">{{ headline.source.name }}</p>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -46,6 +33,7 @@
 import placeholder from "../assets/img/placeholder.jpg";
 
 export default {
+  props: ["featuredHeadline", "headlines"],
   components: {},
   setup() {
     return { placeholder };
