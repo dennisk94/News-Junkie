@@ -247,12 +247,12 @@ export default {
     margin: 0;
   }
   .featured-article-title {
-    bottom: -1rem;
+    bottom: 0;
   }
 }
 @media (min-width: 75em) {
   .featured-article-title {
-    bottom: 0;
+    bottom: 1rem;
   }
 }
 </style>
