@@ -36,7 +36,7 @@ export default {
   color: var(--white);
   font-size: 1.2rem;
   padding: 1rem;
-  z-index: 10;
+  z-index: 13;
 }
 .active {
   display: inline-block;
