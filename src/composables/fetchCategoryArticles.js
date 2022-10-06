@@ -14,13 +14,9 @@ const fetchCategoryArticles = ( category ) => {
                 }
             });
             const newsData = await res.json()
-            console.log(newsData);
             const randomNumber1 = Math.floor(Math.random() * 17);
             const randomNumber2 = randomNumber1 + 3;
-            // console.log(randomNumber1, randomNumber2);
-
             articleData.value = newsData.articles.slice( randomNumber1, randomNumber2 )
-            console.log(newsData.articles.slice( randomNumber1, randomNumber2 ));
         } catch (err) {
             error.value = err.message
         }

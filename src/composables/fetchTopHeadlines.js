@@ -1,6 +1,5 @@
 import { ref } from "vue";
-// const APIKEY = "91ee0a843cd04e0d84abf0eea02b880e";
-const APIKEY = "16f6938cc5c14aa7ab3ef17f1d678d83";
+import { APIKEY } from "@/globals/globals";
 
 const fetchTopHeadlines = () => {
     const featuredHeadline = ref([])
@@ -16,9 +15,7 @@ const fetchTopHeadlines = () => {
                 }
             });
             const newsData = await res.json()
-  
             featuredHeadline.value = newsData.articles.slice(0, 1)
-
             headlines.value = newsData.articles.slice(1, 4)
         } catch (err) {
             error.value = err.message

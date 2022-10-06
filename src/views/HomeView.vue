@@ -4,8 +4,9 @@
       <Headlines :featuredHeadline="featuredHeadline" :headlines="headlines" />
     </div>
     <div v-else>Loading...</div>
-    <Headlines />
-    <Category />
+    <div v-if="articleData.length">
+      <Category :articleData="articleData" category="Technology" />
+    </div>
     <Category />
     <Category />
     <CategorySports />
@@ -17,6 +18,7 @@
 
 <script>
 import fetchTopHeadlines from "../composables/fetchTopHeadlines";
+import fetchCategoryArticles from "../composables/fetchCategoryArticles";
 import Headlines from "@/components/Headlines.vue";
 import Category from "../components/Category.vue";
 import CategorySports from "../components/CategorySports.vue";
@@ -28,10 +30,14 @@ export default {
     CategorySports,
   },
   setup() {
+    // * Fetch featured articles
     const { featuredHeadline, headlines, error, fetchHeadlines } =
       fetchTopHeadlines();
     fetchHeadlines();
-    return { featuredHeadline, headlines };
+    // * Fetch technology articles
+    const { articleData, fetchArticles } = fetchCategoryArticles();
+    fetchArticles("technology");
+    return { featuredHeadline, headlines, articleData };
   },
 };
 </script>

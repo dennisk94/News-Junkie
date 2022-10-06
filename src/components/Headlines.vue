@@ -14,7 +14,6 @@
         <a class="info" :href="'/article/' + featured.title">
           <h2 class="featured-title">
             {{ excerptGenerator(featured.title) }}
-            <!-- {{ featured.title }} -->
           </h2>
           <p class="attribution">{{ featured.source.name }}</p>
         </a>

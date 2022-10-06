@@ -1,49 +1,26 @@
 <template>
   <div class="category">
-    <h3 class="category-heading">Category</h3>
+    <h3 class="category-heading">{{ category }}</h3>
     <div class="articles">
-      <a href="/article/123" class="article">
-        <img :src="placeholder" alt="title" />
-        <h3 class="article-title">
-          article title goes here. Thank you very much.
-        </h3>
-        <p class="article-excerpt">
-          Lorem ipsum dolor sit amet conectetur, adipisicing elit. Reiciendis
-          dolorem aliquid cum aut exercitationem unde.
-        </p>
-        <div class="article-attribution-container">
-          <p class="article-source">BBC</p>
-          <p class="article-published">05/01/2021</p>
-        </div>
-      </a>
-      <a href="/article/123" class="article">
-        <img :src="placeholder" alt="title" />
-        <h3 class="article-title">
-          article title goes here. Thank you very much.
-        </h3>
-        <p class="article-excerpt">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
-          dolorem aliquid cum aut exercitationem unde.
-        </p>
-        <div class="article-attribution-container">
-          <p class="article-source">BBC</p>
-          <p class="article-published">05/01/2021</p>
-        </div>
-      </a>
-      <a href="/article/123" class="article">
-        <img :src="placeholder" alt="title" />
-        <h3 class="article-title">
-          article title goes here. Thank you very much.
-        </h3>
-        <p class="article-excerpt">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
-          dolorem aliquid cum aut exercitationem unde.
-        </p>
-        <div class="article-attribution-container">
-          <p class="article-source">BBC</p>
-          <p class="article-published">05/01/2021</p>
-        </div>
-      </a>
+      <div
+        class="article-wrapper"
+        v-for="article in articleData"
+        :key="article.title"
+      >
+        <a :href="`/article/${article.title}`" class="article">
+          <img :src="article.urlToImage" :alt="article.title" />
+          <h3 class="article-title">
+            {{ article.title }}
+          </h3>
+          <p class="article-excerpt">
+            {{ article.description }}
+          </p>
+          <div class="article-attribution-container">
+            <p class="article-source">{{ article.source.name }}</p>
+            <p class="article-published">{{ article.publishedAt }}</p>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -52,6 +29,7 @@
 import placeholder from "../assets/img/placeholder.jpg";
 
 export default {
+  props: ["articleData", "category"],
   setup() {
     return { placeholder };
   },
