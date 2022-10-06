@@ -5,30 +5,46 @@
       :key="featured.title"
       class="featured-wrapper"
     >
-      <a :href="'/article/' + featured.title" class="featured">
+      <a class="featured">
         <img
           :src="featured.urlToImage"
           :alt="featured.title"
           class="featured-img"
         />
-        <div class="info">
+        <a class="info" :href="'/article/' + featured.title">
           <h2 class="featured-title">
-            {{ featured.title }}
+            {{ excerptGenerator(featured.title) }}
+            <!-- {{ featured.title }} -->
           </h2>
           <p class="attribution">{{ featured.source.name }}</p>
-        </div>
+        </a>
       </a>
-      <div class="overlay"></div>
+      <a class="overlay" :href="'/article/' + featured.title"></a>
     </div>
     <div class="featured-articles">
-      <div v-for="headline in headlines" :key="headline.title">
-        <a :href="'/article/' + headline.title" class="featured-article">
+      <div
+        v-for="headline in headlines"
+        :key="headline.title"
+        class="featured-article-wrapper"
+      >
+        <a class="featured-article">
           <img :src="headline.urlToImage" :alt="headline.title" />
-          <h3 class="featured-article-title">
-            {{ headline.title }}
-          </h3>
-          <p class="featured-article-attribution">{{ headline.source.name }}</p>
+          <a
+            :href="'/article/' + headline.title"
+            class="featured-article-info-wrapper"
+          >
+            <h3 class="featured-article-title">
+              {{ excerptGenerator(headline.title) }}
+            </h3>
+            <p class="featured-article-attribution">
+              {{ headline.source.name }}
+            </p>
+          </a>
         </a>
+        <a
+          :href="'/article/' + headline.title"
+          class="top-headline-overlay"
+        ></a>
       </div>
     </div>
   </div>
@@ -36,12 +52,20 @@
 
 <script>
 import placeholder from "../assets/img/placeholder.jpg";
+import { ref } from "vue";
 
 export default {
   props: ["featuredHeadline", "headlines"],
   components: {},
   setup() {
-    return { placeholder };
+    const excerpt = ref("");
+    const excerptGenerator = (title) => {
+      // * If title length is greater than 50 characters, take a shallow copy of the first 15 words and then use the returned value as the excerpt
+      if (title.length > 50)
+        return title.split(" ").slice(0, 13).join(" ") + "...";
+    };
+
+    return { placeholder, excerptGenerator, excerpt };
   },
 };
 </script>
@@ -56,14 +80,14 @@ export default {
 .featured-title {
   position: absolute;
   font-size: 1.2rem;
-  top: -9rem;
+  top: -7rem;
   right: 0.5rem;
-  left: 0.5rem;
+  left: 1rem;
   transform: translateY(-10%);
   color: var(--white);
   text-align: left;
   margin: 0;
-  z-index: 5;
+  z-index: 12;
 }
 .attribution {
   position: absolute;
@@ -71,7 +95,7 @@ export default {
   left: 1rem;
   color: var(--featured-attribution);
   text-transform: uppercase;
-  z-index: 5;
+  z-index: 12;
 }
 .attribution::before {
   content: "";
@@ -91,6 +115,7 @@ export default {
   top: 0;
   bottom: 0;
   background-color: var(--banner-overlay-bgc);
+  z-index: 11;
 }
 .featured-articles {
   margin: 0 0.5rem 3rem 0.5rem;
@@ -120,7 +145,17 @@ export default {
   margin-right: 0.3rem;
   background-color: var(--primary);
 }
+.featured-article-info-wrapper {
+  text-decoration: none;
+  color: var(--black);
+}
+.featured-article-info-wrapper .featured-article-attribution {
+  color: var(--attribution);
+}
 @media (min-width: 37.5em) {
+  .featured-title {
+    font-size: 1.5rem;
+  }
   .headlines {
     margin-top: 3.4rem;
   }
@@ -129,7 +164,8 @@ export default {
     flex-wrap: wrap;
     justify-content: space-around;
     row-gap: 1rem;
-    margin: 1rem 0.5rem 3rem 0.5rem;
+    width: 85%;
+    margin: 1.5rem auto;
   }
   .featured-article {
     position: relative;
@@ -146,30 +182,55 @@ export default {
   .featured-article-attribution {
     position: absolute;
     margin: 0 0.5rem;
-    z-index: 5;
+    z-index: 12;
   }
   .featured-article-title {
-    bottom: 4rem;
+    bottom: 2rem;
+    transform: translateY(-50%);
     color: var(--white);
+    font-size: 1.2rem;
   }
   .featured-article-attribution {
     bottom: 0.3rem;
     color: var(--featured-attribution);
+    z-index: 12;
+  }
+  .featured-article-wrapper {
+    position: relative;
+  }
+  .top-headline-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: var(--banner-overlay-bgc);
+    z-index: 11;
+  }
+  .featured-article-info-wrapper .featured-article-attribution {
+    color: var(--white);
   }
 }
 @media (min-width: 50em) {
   .featured-title {
     font-size: 1.5rem;
+    top: -6rem;
   }
   .headlines {
     margin-top: 0;
+  }
+  .featured-articles {
+    width: 80%;
+  }
+  .featured-article-title {
+    bottom: 2rem;
   }
 }
 @media (min-width: 62.5em) {
   .headlines {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     margin: 1rem auto;
     max-width: 95%;
     column-gap: 1rem;
@@ -177,9 +238,21 @@ export default {
   .featured {
     width: 50%;
   }
+  .featured-img {
+    height: 100%;
+    object-fit: cover;
+  }
   .featured-articles {
     width: 50%;
     margin: 0;
+  }
+  .featured-article-title {
+    bottom: -1rem;
+  }
+}
+@media (min-width: 75em) {
+  .featured-article-title {
+    bottom: 0;
   }
 }
 </style>
