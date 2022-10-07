@@ -5,12 +5,21 @@
       :key="featured.title"
       class="featured-wrapper"
     >
-      <a class="featured">
+      <a class="featured" v-if="featured.urlToImage">
         <img
           :src="featured.urlToImage"
           :alt="featured.title"
           class="featured-img"
         />
+        <a class="info" :href="'/article/' + featured.title">
+          <h2 class="featured-title">
+            {{ excerptGenerator(featured.title) }}
+          </h2>
+          <p class="attribution">{{ featured.source.name }}</p>
+        </a>
+      </a>
+      <a class="featured" v-else>
+        <img :src="noImg" alt="placeholder" class="featured-img" />
         <a class="info" :href="'/article/' + featured.title">
           <h2 class="featured-title">
             {{ excerptGenerator(featured.title) }}
@@ -51,20 +60,17 @@
 
 <script>
 import placeholder from "../assets/img/placeholder.jpg";
+import noImg from "../assets/img/noImg.svg";
 import { ref } from "vue";
+import { excerptGenerator } from "../composables/excerptGenerator";
 
 export default {
   props: ["featuredHeadline", "headlines"],
   components: {},
   setup() {
     const excerpt = ref("");
-    const excerptGenerator = (title) => {
-      // * If title length is greater than 50 characters, take a shallow copy of the first 15 words and then use the returned value as the excerpt
-      if (title.length > 50)
-        return title.split(" ").slice(0, 13).join(" ") + "...";
-    };
 
-    return { placeholder, excerptGenerator, excerpt };
+    return { placeholder, excerptGenerator, excerpt, noImg };
   },
 };
 </script>
@@ -75,6 +81,7 @@ export default {
 }
 .featured-img {
   width: 100%;
+  height: 50vh;
 }
 .featured-title {
   position: absolute;
@@ -234,12 +241,14 @@ export default {
     max-width: 95%;
     column-gap: 1rem;
   }
+  .featured-wrapper {
+    width: 50%;
+  }
   .featured {
     width: 50%;
   }
   .featured-img {
     height: 100%;
-    object-fit: cover;
   }
   .featured-articles {
     width: 50%;

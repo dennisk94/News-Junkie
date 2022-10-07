@@ -7,17 +7,56 @@
         v-for="article in articleData"
         :key="article.title"
       >
-        <a :href="`/article/${article.title}`" class="article">
-          <img :src="article.urlToImage" :alt="article.title" />
+        <a
+          :href="`/article/${article.title}`"
+          class="article"
+          v-if="article.urlToImage"
+        >
+          <img
+            :src="article.urlToImage"
+            :alt="article.title"
+            class="article-thumbnail"
+          />
           <h3 class="article-title">
             {{ article.title }}
           </h3>
-          <p class="article-excerpt">
-            {{ article.description }}
-          </p>
+          <div v-if="article.content">
+            <p class="article-excerpt">
+              {{ excerptGenerator(article.content) }}
+            </p>
+          </div>
+          <div v-else>
+            <p class="article-excerpt">Read more...</p>
+          </div>
           <div class="article-attribution-container">
             <p class="article-source">{{ article.source.name }}</p>
-            <p class="article-published">{{ article.publishedAt }}</p>
+            <p class="article-published">
+              {{ article.publishedAt.substring(0, 10) }}
+            </p>
+          </div>
+        </a>
+        <a :href="`/article/${article.title}`" class="article" v-else>
+          <img
+            :src="noImg"
+            alt="placeholder"
+            :class="{ 'article-thumbnail': true, noImg: !article.urlToImage }"
+          />
+          <h3 class="article-title">
+            {{ article.title }}
+          </h3>
+          <div v-if="article.content">
+            <p class="article-excerpt">
+              {{ excerptGenerator(article.content) }}
+            </p>
+          </div>
+          <div v-else>
+            <p class="article-excerpt">Read more...</p>
+          </div>
+          <div class="article-attribution-container">
+            <p class="article-source">{{ article.source.name }}</p>
+            <p class="article-published">
+              {{ article.publishedAt.substring(0, 10) }}
+            </p>
           </div>
         </a>
       </div>
@@ -27,11 +66,13 @@
 
 <script>
 import placeholder from "../assets/img/placeholder.jpg";
+import { excerptGenerator } from "../composables/excerptGenerator";
+import noImg from "../assets/img/noImg.svg";
 
 export default {
   props: ["articleData", "category"],
   setup() {
-    return { placeholder };
+    return { placeholder, excerptGenerator, noImg };
   },
 };
 </script>
@@ -75,21 +116,36 @@ export default {
   background-color: var(--primary);
 }
 @media (min-width: 37.5em) {
+  .category {
+    margin: 9rem 0 3rem 0;
+  }
   .category-heading {
     margin: 1rem;
   }
+  .article-wrapper {
+    width: 33%;
+    height: 320px;
+    position: relative;
+  }
   .articles {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 1rem;
     margin: 1rem 0.5rem 3rem 0.5rem;
   }
   .article {
     width: 90%;
   }
   .article img {
-    display: block;
+    display: inline-block;
+    object-fit: cover;
+    object-position: top;
     width: 100%;
+    height: 130px;
+  }
+  .article .noImg {
+    object-fit: unset;
   }
   .article::after {
     display: none;
@@ -103,6 +159,27 @@ export default {
     z-index: 5;
     text-transform: uppercase;
   }
+  .article-attribution-container {
+    position: absolute;
+    bottom: -7rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+  }
+  .article-source {
+    margin: 0;
+  }
+  .article-published {
+    margin-top: 0.5rem;
+  }
+}
+@media (min-width: 50em) {
+  .article-wrapper {
+    height: 290px;
+  }
+  .article img {
+    height: 150px;
+  }
 }
 @media (min-width: 62.5em) {
   .category {
@@ -110,8 +187,22 @@ export default {
     padding: 0;
   }
   .articles {
-    width: 100%;
-    margin: 0;
+    width: 95%;
+    margin: 2rem auto 3rem auto;
+  }
+  .article-wrapper {
+    height: 300px;
+  }
+  .article img {
+    height: 200px;
+  }
+  .article-published::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 14px;
+    margin-right: 0.3rem;
+    background-color: var(--primary);
   }
 }
 </style>
