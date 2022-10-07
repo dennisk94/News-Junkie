@@ -16,8 +16,12 @@
     <div v-if="countryData.length">
       <Category :articleData="countryData" category="US" />
     </div>
-    <Category />
-    <Category />
+    <div v-if="healthData.length">
+      <Category :articleData="healthData" category="Health" />
+    </div>
+    <div v-if="generalData.length">
+      <Category :articleData="generalData" category="General" />
+    </div>
   </div>
 </template>
 
@@ -45,13 +49,19 @@ export default {
       businessData,
       sportsData,
       countryData,
+      healthData,
+      generalData,
       fetchArticles,
     } = fetchCategoryArticles();
+
+    // * Fetch all data for homepage
     fetchArticles("technology", "category");
     fetchArticles("business", "category");
     fetchArticles("sports", "category");
     fetchArticles("us", "country");
-    console.log(technologyData, businessData);
+    fetchArticles("health", "category");
+    fetchArticles("general", "category");
+
     return {
       featuredHeadline,
       headlines,
@@ -59,6 +69,8 @@ export default {
       businessData,
       sportsData,
       countryData,
+      healthData,
+      generalData,
     };
   },
 };
@@ -66,6 +78,16 @@ export default {
 <style>
 .home {
   max-width: 1300px;
-  margin: 0 auto;
+  margin: 0 auto 4rem auto;
+}
+@media (min-width: 37.5em) {
+  .home {
+    margin: 0 auto 10rem auto;
+  }
+}
+@media (min-width: 62.5em) {
+  .home {
+    margin: 0 auto 13rem auto;
+  }
 }
 </style>

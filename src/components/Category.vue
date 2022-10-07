@@ -124,7 +124,7 @@ export default {
   }
   .article-wrapper {
     width: 33%;
-    height: 320px;
+    height: 370px;
     position: relative;
   }
   .articles {
@@ -175,7 +175,7 @@ export default {
 }
 @media (min-width: 50em) {
   .article-wrapper {
-    height: 290px;
+    height: 300px;
   }
   .article img {
     height: 150px;
@@ -191,7 +191,7 @@ export default {
     margin: 2rem auto 3rem auto;
   }
   .article-wrapper {
-    height: 300px;
+    height: 330px;
   }
   .article img {
     height: 200px;
