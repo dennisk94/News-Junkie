@@ -1,8 +1,10 @@
 import { APIKEY } from "@/globals/globals";
 import { ref } from "vue";
 
-const fetchCategoryArticles = ( category ) => {
-    const articleData = ref([])
+const fetchCategoryArticles = () => {
+    const technologyData = ref([])
+    const businessData = ref([])
+
     const error = ref(null)
 
     const fetchArticles = async (category) => {
@@ -16,12 +18,23 @@ const fetchCategoryArticles = ( category ) => {
             const newsData = await res.json()
             const randomNumber1 = Math.floor(Math.random() * 17);
             const randomNumber2 = randomNumber1 + 3;
-            articleData.value = newsData.articles.slice( randomNumber1, randomNumber2 )
+            switch ( category ) {
+                case 'technology':
+                    technologyData.value = newsData.articles.slice( randomNumber1, randomNumber2 )
+                    break;
+                case 'business':
+                    businessData.value = newsData.articles.slice( randomNumber1, randomNumber2 )
+                    break;
+                default:
+                    break;
+            }
+            // console.log(newsData.articles);
+            // console.log(newsData.articles[0].publishedAt.substring(0, 10));
         } catch (err) {
             error.value = err.message
         }
     }
-    return { articleData, error, fetchArticles }
+    return { technologyData, businessData, error, fetchArticles }
 }
 
 export default fetchCategoryArticles
