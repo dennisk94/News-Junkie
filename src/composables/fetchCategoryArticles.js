@@ -5,12 +5,15 @@ const fetchCategoryArticles = () => {
     const technologyData = ref([])
     const businessData = ref([])
     const sportsData = ref([])
+    const countryData = ref([])
 
     const error = ref(null)
 
-    const fetchArticles = async (category) => {
+    const fetchArticles = async (category, type) => {
+        const query = type === 'country' ? `country=${ category }` : `category=${ category }`;
+
         try {
-            const res = await fetch(`https://newsapi.org/v2/top-headlines?category=${ category }&language=en`, {
+            const res = await fetch(`https://newsapi.org/v2/top-headlines?${ query }&language=en`, {
                 headers: {
                     'Accept': 'application/json',
                     'Authorization': 'Bearer ' + APIKEY
@@ -29,16 +32,17 @@ const fetchCategoryArticles = () => {
                 case 'sports':
                     sportsData.value = newsData.articles.slice( randomNumber1, randomNumber2 )
                     break;
+                case 'us':
+                    countryData.value = newsData.articles.slice( randomNumber1, randomNumber2 )
+                    break;
                 default:
                     break;
             }
-            // console.log(newsData.articles);
-            // console.log(newsData.articles[0].publishedAt.substring(0, 10));
         } catch (err) {
             error.value = err.message
         }
     }
-    return { technologyData, businessData, sportsData, error, fetchArticles }
+    return { technologyData, businessData, sportsData, countryData, error, fetchArticles }
 }
 
 export default fetchCategoryArticles
