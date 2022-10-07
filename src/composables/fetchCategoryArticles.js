@@ -4,6 +4,7 @@ import { ref } from "vue";
 const fetchCategoryArticles = () => {
     const technologyData = ref([])
     const businessData = ref([])
+    const sportsData = ref([])
 
     const error = ref(null)
 
@@ -25,6 +26,9 @@ const fetchCategoryArticles = () => {
                 case 'business':
                     businessData.value = newsData.articles.slice( randomNumber1, randomNumber2 )
                     break;
+                case 'sports':
+                    sportsData.value = newsData.articles.slice( randomNumber1, randomNumber2 )
+                    break;
                 default:
                     break;
             }
@@ -34,7 +38,7 @@ const fetchCategoryArticles = () => {
             error.value = err.message
         }
     }
-    return { technologyData, businessData, error, fetchArticles }
+    return { technologyData, businessData, sportsData, error, fetchArticles }
 }
 
 export default fetchCategoryArticles

@@ -10,8 +10,9 @@
     <div v-if="businessData.length">
       <Category :articleData="businessData" category="Business" />
     </div>
-    <Category />
-    <CategorySports />
+    <div v-if="sportsData.length">
+      <CategorySports :articleData="sportsData" category="Sports" />
+    </div>
     <Category />
     <Category />
     <Category />
@@ -37,12 +38,19 @@ export default {
       fetchTopHeadlines();
     fetchHeadlines();
     // * Fetch technology articles
-    const { technologyData, businessData, fetchArticles } =
+    const { technologyData, businessData, sportsData, fetchArticles } =
       fetchCategoryArticles();
     fetchArticles("technology");
     fetchArticles("business");
+    fetchArticles("sports");
     console.log(technologyData, businessData);
-    return { featuredHeadline, headlines, technologyData, businessData };
+    return {
+      featuredHeadline,
+      headlines,
+      technologyData,
+      businessData,
+      sportsData,
+    };
   },
 };
 </script>
