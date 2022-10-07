@@ -82,11 +82,12 @@ export default {
   top: 5rem;
   left: 0;
   right: 0;
+  margin-bottom: 10rem;
 }
 .category-sports-img {
   position: relative;
   width: 100%;
-  height: 57vh;
+  height: 66vh;
   object-fit: cover;
 }
 .category-sports {
