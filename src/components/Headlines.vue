@@ -249,6 +249,8 @@ export default {
   }
   .featured-img {
     height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
   .featured-articles {
     width: 50%;
