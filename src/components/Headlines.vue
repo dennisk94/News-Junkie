@@ -82,6 +82,7 @@ export default {
 .featured-img {
   width: 100%;
   height: 50vh;
+  object-fit: cover;
 }
 .featured-title {
   position: absolute;
@@ -164,6 +165,9 @@ export default {
   }
   .headlines {
     margin-top: 3.4rem;
+  }
+  .featured-img {
+    object-fit: cover;
   }
   .featured-articles {
     display: flex;
