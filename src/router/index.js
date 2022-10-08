@@ -21,6 +21,11 @@ const routes = [
     component: CategoryView
   },
   {
+    path: '/country/:slug',
+    name: 'Country',
+    component: CategoryView
+  },
+  {
     path: '/article/:id',
     name: 'Article',
     component: ArticleView
