@@ -2,25 +2,32 @@
   <div class="category-page">
     <div class="articles-wrapper">
       <div
-        class="featured-category-article"
+        class="featured-category-wrapper"
         v-for="featuredArticle in featuredcategoryArticle"
         :key="featuredArticle.title"
       >
         <a
           :href="`/article/${featuredArticle.title}`"
-          class="featured-article"
+          class="featured-category-article"
           v-if="featuredArticle.urlToImage"
         >
-          <img :src="featuredArticle.urlToImage" :alt="featuredArticle.title" />
-          <h3 class="featured-article-title">
-            {{ featuredArticle.title }}
-          </h3>
-          <div class="featured-article-attribution-container">
-            <p class="featured-article-source">
-              {{ featuredArticle.source.name }}
-            </p>
+          <img
+            :src="featuredArticle.urlToImage"
+            :alt="featuredArticle.title"
+            class="featured-category-img"
+          />
+          <div class="info">
+            <h3 class="featured-title">
+              {{ excerptGenerator(featuredArticle.title) }}
+            </h3>
+            <div class="featured-article-attribution-container">
+              <p class="attribution">
+                {{ featuredArticle.source.name }}
+              </p>
+            </div>
           </div>
         </a>
+        <a class="overlay" :href="'/article/' + featuredArticle.title"></a>
       </div>
       <div
         class="article-wrapper"
@@ -34,7 +41,7 @@
         >
           <img :src="article.urlToImage" :alt="article.title" />
           <h3 class="article-title">
-            {{ article.title }}
+            {{ excerptGenerator(article.title) }}
           </h3>
           <div v-if="article.content">
             <p class="article-excerpt">
@@ -115,20 +122,36 @@ export default {
 .category-page {
   margin: 0 1rem;
 }
+.featured-category-wrapper,
+.featured-category-article {
+  position: relative;
+}
+.featured-category-img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
 .articles-wrapper {
   margin: 0 auto;
 }
 @media (min-width: 37.5em) {
   .category-page {
-    margin: 4rem 1rem 1rem 1rem;
+    margin: 2rem 1rem 1rem 1rem;
   }
-  .articles-wrapper {
+  .category-page .articles-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     column-gap: 1rem;
+    row-gap: 1rem;
     max-width: 1200px;
-    margin: 1rem 0.5rem 3rem 0.5rem;
+    margin: 1rem auto 3rem auto;
+  }
+  .articles-wrapper .article-wrapper {
+    width: 100%;
+  }
+  .featured-category-wrapper {
+    grid-area: 1 / 1 / 2 / 3;
   }
 }
 @media (min-width: 62.5em) {
