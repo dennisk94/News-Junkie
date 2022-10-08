@@ -55,12 +55,12 @@ export default {
     } = fetchCategoryArticles();
 
     // * Fetch all data for homepage
-    fetchArticles("technology", "category");
-    fetchArticles("business", "category");
-    fetchArticles("sports", "category");
-    fetchArticles("us", "country");
-    fetchArticles("health", "category");
-    fetchArticles("general", "category");
+    fetchArticles("technology", "category", "home");
+    fetchArticles("business", "category", "home");
+    fetchArticles("sports", "category", "home");
+    fetchArticles("us", "country", "home");
+    fetchArticles("health", "category", "home");
+    fetchArticles("general", "category", "home");
 
     return {
       featuredHeadline,
