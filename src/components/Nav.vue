@@ -7,11 +7,17 @@
       <a href="/category/business">
         <li class="list-item">Business</li>
       </a>
+      <a href="/category/sports">
+        <li class="list-item">Sports</li>
+      </a>
+      <a href="/country/us">
+        <li class="list-item">US</li>
+      </a>
       <a href="/category/health">
         <li class="list-item">Health</li>
       </a>
-      <a href="/category/sports">
-        <li class="list-item">Sports</li>
+      <a href="/category/general">
+        <li class="list-item">General</li>
       </a>
       <a href="/search">
         <li class="list-item search">Search</li>
