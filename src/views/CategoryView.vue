@@ -150,13 +150,25 @@ export default {
   .articles-wrapper .article-wrapper {
     width: 100%;
   }
+  .article-wrapper {
+    margin: 0 1rem 2rem 1rem;
+  }
   .featured-category-wrapper {
     grid-area: 1 / 1 / 2 / 3;
+  }
+  .article-attribution-container {
+    bottom: -1rem;
   }
 }
 @media (min-width: 50em) {
   .category-page {
     margin: 2rem 1rem 1rem 1rem;
+  }
+  .article-wrapper {
+    margin: 0 1rem 4rem 1rem;
+  }
+  .article-attribution-container {
+    bottom: -4rem;
   }
 }
 @media (min-width: 62.5em) {
@@ -164,6 +176,7 @@ export default {
     grid-template-columns: repeat(4, 1fr);
     margin: 0 auto;
   }
+
   .featured-category-wrapper {
     width: 100%;
   }
