@@ -1,6 +1,5 @@
 <template>
   <div class="search-page">
-    <!-- {{ queriedArticles }} -->
     <form class="search-input" @submit.prevent="handleInput">
       <input
         class="input"
@@ -8,7 +7,7 @@
         placeholder="Search..."
         v-model="input"
       />
-      <span class="search-icon"><BIconSearch /></span>
+      <span class="search-icon" @click="handleInput"><BIconSearch /></span>
     </form>
     <SearchResults :articles="queriedArticles" />
   </div>
@@ -31,6 +30,7 @@ export default {
       fetchQueryArticles();
     const handleInput = () => {
       fetchQueriedArticles(input.value);
+      input.value = "";
     };
     return { handleInput, input, queriedArticles };
   },
@@ -38,6 +38,9 @@ export default {
 </script>
 
 <style>
+.search-page {
+  min-height: 69.9vh;
+}
 .search-input {
   display: flex;
   justify-content: center;
@@ -72,17 +75,26 @@ export default {
   font-size: 1.1rem;
 }
 @media (min-width: 37.5em) {
+  .search-page {
+    min-height: 75vh;
+  }
   .search-input {
     margin: 5rem 0.5rem 2rem 0.5rem;
   }
 }
 @media (min-width: 50em) {
+  .search-page {
+    min-height: 78.2vh;
+  }
   .search-input {
     margin: 3rem auto 2rem auto;
     max-width: 1034px;
   }
 }
 @media (min-width: 62.5em) {
+  .search-page {
+    min-height: 76.9vh;
+  }
   .search-icon {
     padding: 1.075rem 1rem;
   }
