@@ -1,94 +1,79 @@
 <template>
   <div class="search-results">
-    <a href="/article/123" class="article">
-      <img :src="placeholder" alt="title" />
-      <div class="article-info">
+    <div
+      class="results-wrapper"
+      v-for="article in articles"
+      :key="article.title"
+    >
+      <a
+        :href="`/article/${article.title}`"
+        class="article"
+        v-if="article.urlToImage"
+      >
+        <img
+          :src="article.urlToImage"
+          :alt="article.title"
+          class="article-thumbnail"
+        />
         <h3 class="article-title">
-          article title goes here. Thank you very much.
+          {{ article.title }}
         </h3>
-        <p class="article-excerpt">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
-          dolorem aliquid cum aut exercitationem unde.
-        </p>
-        <div class="article-attribution-container">
-          <p class="article-source">BBC</p>
-          <p class="article-published">05/01/2021</p>
+        <div v-if="article.content">
+          <p class="article-excerpt">
+            {{ excerptGenerator(article.content) }}
+          </p>
         </div>
-      </div>
-    </a>
-    <a href="/article/123" class="article">
-      <img :src="placeholder" alt="title" />
-      <div class="article-info">
+        <div v-else>
+          <p class="article-excerpt">Read more...</p>
+        </div>
+        <div class="article-attribution-container">
+          <p class="article-source">{{ article.source.name }}</p>
+          <p class="article-published">
+            {{ article.publishedAt.substring(0, 10) }}
+          </p>
+        </div>
+      </a>
+      <a :href="`/article/${article.title}`" class="article" v-else>
+        <img
+          :src="noImg"
+          alt="placeholder"
+          :class="{ 'article-thumbnail': true, noImg: !article.urlToImage }"
+        />
         <h3 class="article-title">
-          article title goes here. Thank you very much.
+          {{ article.title }}
         </h3>
-        <p class="article-excerpt">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
-          dolorem aliquid cum aut exercitationem unde.
-        </p>
-        <div class="article-attribution-container">
-          <p class="article-source">BBC</p>
-          <p class="article-published">05/01/2021</p>
+        <div v-if="article.content">
+          <p class="article-excerpt">
+            {{ excerptGenerator(article.content) }}
+          </p>
         </div>
-      </div>
-    </a>
-    <a href="/article/123" class="article">
-      <img :src="placeholder" alt="title" />
-      <div class="article-info">
-        <h3 class="article-title">
-          article title goes here. Thank you very much.
-        </h3>
-        <p class="article-excerpt">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
-          dolorem aliquid cum aut exercitationem unde.
-        </p>
-        <div class="article-attribution-container">
-          <p class="article-source">BBC</p>
-          <p class="article-published">05/01/2021</p>
+        <div v-else>
+          <p class="article-excerpt">Read more...</p>
         </div>
-      </div>
-    </a>
-    <a href="/article/123" class="article">
-      <img :src="placeholder" alt="title" />
-      <div class="article-info">
-        <h3 class="article-title">
-          article title goes here. Thank you very much.
-        </h3>
-        <p class="article-excerpt">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
-          dolorem aliquid cum aut exercitationem unde.
-        </p>
         <div class="article-attribution-container">
-          <p class="article-source">BBC</p>
-          <p class="article-published">05/01/2021</p>
+          <p class="article-source">{{ article.source.name }}</p>
+          <p class="article-published">
+            {{ article.publishedAt.substring(0, 10) }}
+          </p>
         </div>
-      </div>
-    </a>
-    <a href="/article/123" class="article">
-      <img :src="placeholder" alt="title" />
-      <div class="article-info">
-        <h3 class="article-title">
-          article title goes here. Thank you very much.
-        </h3>
-        <p class="article-excerpt">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
-          dolorem aliquid cum aut exercitationem unde.
-        </p>
-        <div class="article-attribution-container">
-          <p class="article-source">BBC</p>
-          <p class="article-published">05/01/2021</p>
-        </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
 import placeholder from "../assets/img/placeholder.jpg";
+import { excerptGenerator } from "../composables/excerptGenerator";
+import noImg from "../assets/img/noImg.svg";
 
 export default {
+  props: ["articles"],
   setup() {
-    return { placeholder };
+    return {
+      placeholder,
+      excerptGenerator,
+      noImg,
+    };
   },
 };
 </script>

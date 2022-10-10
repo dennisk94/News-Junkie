@@ -1,16 +1,24 @@
 <template>
   <div class="search-page">
-    <div class="search-input">
-      <input class="input" type="text" placeholder="Search..." />
+    <!-- {{ queriedArticles }} -->
+    <form class="search-input" @submit.prevent="handleInput">
+      <input
+        class="input"
+        type="text"
+        placeholder="Search..."
+        v-model="input"
+      />
       <span class="search-icon"><BIconSearch /></span>
-    </div>
-    <SearchResults />
+    </form>
+    <SearchResults :articles="queriedArticles" />
   </div>
 </template>
 
 <script>
 import SearchResults from "../components/SearchResults.vue";
 import { BIconSearch } from "bootstrap-icons-vue";
+import { ref } from "vue";
+import fetchQueryArticles from "../composables/fetchQueryArticles";
 
 export default {
   components: {
@@ -18,7 +26,13 @@ export default {
     SearchResults,
   },
   setup() {
-    return {};
+    const input = ref("");
+    const { queriedArticles, error, fetchQueriedArticles } =
+      fetchQueryArticles();
+    const handleInput = () => {
+      fetchQueriedArticles(input.value);
+    };
+    return { handleInput, input, queriedArticles };
   },
 };
 </script>
