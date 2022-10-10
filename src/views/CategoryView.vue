@@ -119,9 +119,6 @@ export default {
 </script>
 
 <style scoped>
-.category-page {
-  margin: 0 1rem;
-}
 .featured-category-wrapper,
 .featured-category-article {
   position: relative;
@@ -134,9 +131,12 @@ export default {
 .articles-wrapper {
   margin: 0 auto;
 }
+.article-wrapper {
+  margin: 0 1rem;
+}
 @media (min-width: 37.5em) {
   .category-page {
-    margin: 2rem 1rem 1rem 1rem;
+    margin: 5rem 1rem 1rem 1rem;
   }
   .category-page .articles-wrapper {
     display: grid;
@@ -154,10 +154,18 @@ export default {
     grid-area: 1 / 1 / 2 / 3;
   }
 }
+@media (min-width: 50em) {
+  .category-page {
+    margin: 2rem 1rem 1rem 1rem;
+  }
+}
 @media (min-width: 62.5em) {
   .articles-wrapper {
     grid-template-columns: repeat(4, 1fr);
     margin: 0 auto;
+  }
+  .featured-category-wrapper {
+    width: 100%;
   }
 }
 </style>
