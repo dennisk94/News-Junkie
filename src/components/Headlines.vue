@@ -298,7 +298,7 @@ export default {
     margin: 0;
   }
   .featured-article-title {
-    bottom: 0;
+    bottom: 1rem;
   }
 }
 @media (min-width: 75em) {

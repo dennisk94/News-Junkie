@@ -7,7 +7,7 @@ const fetchQueryArticles = () => {
 
     const fetchQueriedArticles = async ( q ) => {
         try {
-            const res = await fetch(`https://newsapi.org/v2/everythng?q=${ q }&language=en`, {
+            const res = await fetch(`https://newsapi.org/v2/everything?q=${ q }&language=en`, {
                 headers: {
                     'Accept': 'application/json',
                     'Authorization': 'Bearer ' + APIKEY
