@@ -1,6 +1,7 @@
 <template>
-  <div class="article-page">
-    <div class="article-heading">
+  <!-- <div class="article-page"> -->
+  <div>{{ document }}</div>
+  <!-- <div class="article-heading">
       <h1 class="article-title">Title of the article goes here. Thank you</h1>
       <div class="article-attribution">
         <p class="article-source">BBC</p>
@@ -64,16 +65,23 @@
       dolor sit amet consectetur adipisicing elit. Aspernatur unde, inventore
       vel facere quas assumenda illo magnam iusto architecto veniam quibusdam
       error est consequatur enim nam esse quaerat asperiores nesciunt?
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
 </template>
 
 <script>
 import placeholder from "../assets/img/placeholder.jpg";
+import fetchArticleContent from "../composables/fetchArticleContent";
 
 export default {
+  props: ["url"],
   setup() {
-    return { placeholder };
+    const link = localStorage.getItem("link");
+    const { document, getArticleData } = fetchArticleContent();
+    getArticleData(link);
+    console.log(document);
+
+    return { placeholder, document };
   },
 };
 </script>
