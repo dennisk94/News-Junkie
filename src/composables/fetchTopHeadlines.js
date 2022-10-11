@@ -21,6 +21,7 @@ const fetchTopHeadlines = () => {
             error.value = err.message
         }
     }
+    // console.log(featuredHeadline.value);
     return { featuredHeadline, headlines, error, fetchHeadlines }
 }
 

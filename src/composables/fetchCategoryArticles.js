@@ -60,7 +60,7 @@ const fetchCategoryArticles = () => {
         } catch (err) {
             error.value = err.message
         }
-        console.log(categoryArticles.value);
+        // console.log(categoryArticles.value);
     }
     return { technologyData, businessData, sportsData, countryData, healthData, generalData, categoryArticles, featuredcategoryArticle, error, fetchArticles }
 }
