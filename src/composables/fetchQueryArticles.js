@@ -7,16 +7,22 @@ const fetchQueryArticles = () => {
 
     const fetchQueriedArticles = async ( q ) => {
         try {
-            const res = await fetch(`https://newsapi.org/v2/everything?q=${ q }&language=en`, {
+            const res = await fetch(`https://newsapi.org/v2/everythng?q=${ q }&language=en`, {
                 headers: {
                     'Accept': 'application/json',
                     'Authorization': 'Bearer ' + APIKEY
                 }
             });
             const newsData = await res.json()
+            console.log(newsData);
+            // Guard clause if there are no matching articles for the query
+            if ( newsData.totalResults.length === 0 ) {
+                alert('There were no matching results. Please try another search term.')
+                return
+            }
             queriedArticles.value = newsData.articles.slice( 0, 20 );
         } catch (err) {
-            error.value = err.message
+            error.value = 'Something went wrong. Please try again in a few minutes.'
         }
     }
     return { queriedArticles, error, fetchQueriedArticles }
