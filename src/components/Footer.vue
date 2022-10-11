@@ -2,15 +2,14 @@
   <footer class="footer">
     <div class="categories">
       <div class="category-cell left">
-        <a href="/">Technology</a>
-        <a href="/">Business</a>
-        <a href="/">Science</a>
-        <a href="/">Health</a>
+        <a href="/category/technology">Technology</a>
+        <a href="/category/business">Business</a>
+        <a href="/category/science">Science</a>
       </div>
       <div class="category-cell right">
-        <a href="/">Sports</a>
-        <a href="/">General</a>
-        <a href="/">Science</a>
+        <a href="/category/health">Health</a>
+        <a href="/category/sports">Sports</a>
+        <a href="/category/general">General</a>
       </div>
     </div>
     <p class="copy">&copy; {{ getYear() }} || Dennis Kim</p>
