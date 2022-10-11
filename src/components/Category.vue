@@ -8,10 +8,11 @@
         :key="article.title"
       >
         <a
-          :href="`/article/${article.title}`"
+          :href="article.url"
           class="article"
           v-if="article.urlToImage"
-          @click="handleClickCategory(article.url)"
+          target="_blank"
+          rel="noreferrer noopener"
         >
           <img
             :src="article.urlToImage"
@@ -36,7 +37,13 @@
             </p>
           </div>
         </a>
-        <a :href="`/article/${article.title}`" class="article" v-else>
+        <a
+          :href="article.url"
+          class="article"
+          v-else
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <img
             :src="noImg"
             alt="placeholder"

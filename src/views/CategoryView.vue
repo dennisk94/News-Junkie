@@ -7,9 +7,11 @@
         :key="featuredArticle.title"
       >
         <a
-          :href="`/article/${featuredArticle.title}`"
+          :href="featuredArticle.url"
           class="featured-category-article"
           v-if="featuredArticle.urlToImage"
+          target="_blank"
+          rel="noreferrer noopener"
         >
           <img
             :src="featuredArticle.urlToImage"
@@ -27,7 +29,12 @@
             </div>
           </div>
         </a>
-        <a class="overlay" :href="'/article/' + featuredArticle.title"></a>
+        <a
+          class="overlay"
+          :href="featuredArticle.url"
+          target="_blank"
+          rel="noreferrer noopener"
+        ></a>
       </div>
       <div
         class="article-wrapper"
@@ -35,9 +42,11 @@
         :key="article.title"
       >
         <a
-          :href="`/article/${article.title}`"
+          :href="article.url"
           class="article"
           v-if="article.urlToImage"
+          target="_blank"
+          rel="noreferrer noopener"
         >
           <img :src="article.urlToImage" :alt="article.title" />
           <h3 class="article-title">
@@ -58,7 +67,13 @@
             </p>
           </div>
         </a>
-        <a :href="`/article/${article.title}`" class="article" v-else>
+        <a
+          :href="article.url"
+          class="article"
+          v-else
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <img
             :src="noImg"
             alt="placeholder"

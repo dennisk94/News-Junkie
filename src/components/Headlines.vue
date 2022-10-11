@@ -4,40 +4,70 @@
       v-for="featured in featuredHeadline"
       :key="featured.title"
       class="featured-wrapper"
-      @click="handleClick(featured.url)"
     >
-      <a class="featured" v-if="featured.urlToImage">
+      <a
+        class="featured"
+        v-if="featured.urlToImage"
+        :href="featured.url"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
         <img
           :src="featured.urlToImage"
           :alt="featured.title"
           class="featured-img"
         />
-        <a class="info" :href="'/article/' + featured.title">
+        <a
+          class="info"
+          :href="featured.url"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <h2 class="featured-title">
             {{ excerptGenerator(featured.title) }}
           </h2>
           <p class="attribution">{{ featured.source.name }}</p>
         </a>
       </a>
-      <a class="featured" v-else>
+      <a
+        class="featured"
+        v-else
+        :href="featured.url"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
         <img :src="noImg" alt="placeholder" class="featured-img" />
-        <a class="info" :href="'/article/' + featured.title">
+        <a
+          class="info"
+          :href="featured.url"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <h2 class="featured-title">
             {{ excerptGenerator(featured.title) }}
           </h2>
           <p class="attribution">{{ featured.source.name }}</p>
         </a>
       </a>
-      <a class="overlay" :href="'/article/' + featured.title"></a>
+      <a
+        class="overlay"
+        :href="featured.url"
+        target="_blank"
+        rel="noreferrer noopener"
+      ></a>
     </div>
     <div class="featured-articles">
       <div
         v-for="headline in headlines"
         :key="headline.title"
         class="featured-article-wrapper"
-        @click="handleClick(headline.url)"
       >
-        <a class="featured-article">
+        <a
+          class="featured-article"
+          :href="headline.url"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <img :src="headline.urlToImage" :alt="headline.title" />
           <a
             :href="'/article/' + headline.title"
@@ -52,8 +82,10 @@
           </a>
         </a>
         <a
-          :href="'/article/' + headline.title"
+          :href="headline.url"
           class="top-headline-overlay"
+          target="_blank"
+          rel="noreferrer noopener"
         ></a>
       </div>
     </div>
