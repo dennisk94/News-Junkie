@@ -40,8 +40,7 @@ export default {
   },
   setup() {
     // * Fetch featured articles
-    const { featuredHeadline, headlines, error, fetchHeadlines } =
-      fetchTopHeadlines();
+    const { featuredHeadline, headlines, fetchHeadlines } = fetchTopHeadlines();
     fetchHeadlines();
     // * Fetch technology articles
     const {

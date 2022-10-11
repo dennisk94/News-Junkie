@@ -18,11 +18,11 @@ const fetchTopHeadlines = () => {
             featuredHeadline.value = newsData.articles.slice(0, 1)
             headlines.value = newsData.articles.slice(1, 4)
         } catch (err) {
-            error.value = err.message
+            error.value = 'Something went wrong. Please try refreshing the page.'
         }
     }
     // console.log(featuredHeadline.value);
-    return { featuredHeadline, headlines, error, fetchHeadlines }
+    return { featuredHeadline, headlines, fetchHeadlines }
 }
 
 export default fetchTopHeadlines
