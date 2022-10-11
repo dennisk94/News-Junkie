@@ -9,7 +9,12 @@
       />
       <span class="search-icon" @click="handleInput"><BIconSearch /></span>
     </form>
-    <SearchResults :articles="queriedArticles" />
+    <div v-if="error">
+      <p class="error">{{ error }}</p>
+    </div>
+    <div v-else>
+      <SearchResults :articles="queriedArticles" />
+    </div>
   </div>
 </template>
 
@@ -32,14 +37,14 @@ export default {
       fetchQueriedArticles(input.value);
       input.value = "";
     };
-    return { handleInput, input, queriedArticles };
+    return { handleInput, input, queriedArticles, error };
   },
 };
 </script>
 
 <style>
 .search-page {
-  min-height: 69.9vh;
+  min-height: 42.91rem;
 }
 .search-input {
   display: flex;
@@ -73,6 +78,10 @@ export default {
 .search-icon svg {
   color: var(--white);
   font-size: 1.1rem;
+}
+.error {
+  text-align: center;
+  margin: 1rem 1rem;
 }
 @media (min-width: 37.5em) {
   .search-page {
