@@ -157,7 +157,7 @@ export default {
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0;
+  bottom: 0.3rem;
   background-color: var(--banner-overlay-bgc);
   z-index: 11;
 }
@@ -281,6 +281,9 @@ export default {
     margin: 1rem auto;
     max-width: 95%;
     column-gap: 1rem;
+  }
+  .overlay {
+    bottom: 0;
   }
   .featured-wrapper {
     width: 50%;

@@ -195,5 +195,8 @@ export default {
   .featured-category-wrapper {
     width: 100%;
   }
+  .featured-category-wrapper .overlay {
+    bottom: 0.3rem;
+  }
 }
 </style>
