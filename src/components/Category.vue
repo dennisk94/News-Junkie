@@ -11,6 +11,7 @@
           :href="`/article/${article.title}`"
           class="article"
           v-if="article.urlToImage"
+          @click="handleClickCategory(article.url)"
         >
           <img
             :src="article.urlToImage"
@@ -72,7 +73,11 @@ import noImg from "../assets/img/noImg.svg";
 export default {
   props: ["articleData", "category"],
   setup() {
-    return { placeholder, excerptGenerator, noImg };
+    const handleClickCategory = (url) => {
+      // console.log("hello");
+      localStorage.setItem("link", url);
+    };
+    return { placeholder, excerptGenerator, noImg, handleClickCategory };
   },
 };
 </script>

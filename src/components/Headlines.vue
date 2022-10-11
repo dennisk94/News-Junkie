@@ -4,6 +4,7 @@
       v-for="featured in featuredHeadline"
       :key="featured.title"
       class="featured-wrapper"
+      @click="handleClick(featured.url)"
     >
       <a class="featured" v-if="featured.urlToImage">
         <img
@@ -34,6 +35,7 @@
         v-for="headline in headlines"
         :key="headline.title"
         class="featured-article-wrapper"
+        @click="handleClick(headline.url)"
       >
         <a class="featured-article">
           <img :src="headline.urlToImage" :alt="headline.title" />
@@ -69,8 +71,11 @@ export default {
   components: {},
   setup() {
     const excerpt = ref("");
+    const handleClick = (url) => {
+      localStorage.setItem("link", url);
+    };
 
-    return { placeholder, excerptGenerator, excerpt, noImg };
+    return { placeholder, excerptGenerator, excerpt, noImg, handleClick };
   },
 };
 </script>
