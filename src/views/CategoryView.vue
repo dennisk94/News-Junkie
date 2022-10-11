@@ -103,7 +103,6 @@
 </template>
 
 <script>
-import placeholder from "../assets/img/placeholder.jpg";
 import { useRouter } from "vue-router";
 import fetchCategoryArticles from "../composables/fetchCategoryArticles";
 import noImg from "../assets/img/noImg.svg";
@@ -123,7 +122,6 @@ export default {
     // * Fetch all data for single category page
     fetchArticles(category, type, "single");
     return {
-      placeholder,
       categoryArticles,
       featuredcategoryArticle,
       noImg,

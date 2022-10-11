@@ -74,7 +74,6 @@
 </template>
 
 <script>
-import placeholder from "../assets/img/placeholder.jpg";
 import { excerptGenerator } from "../composables/excerptGenerator";
 import noImg from "../assets/img/noImg.svg";
 
@@ -82,7 +81,6 @@ export default {
   props: ["articles"],
   setup() {
     return {
-      placeholder,
       excerptGenerator,
       noImg,
     };

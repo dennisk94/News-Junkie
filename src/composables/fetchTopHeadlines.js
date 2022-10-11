@@ -21,7 +21,6 @@ const fetchTopHeadlines = () => {
             error.value = 'Something went wrong. Please try refreshing the page.'
         }
     }
-    // console.log(featuredHeadline.value);
     return { featuredHeadline, headlines, fetchHeadlines }
 }
 

@@ -73,7 +73,6 @@
 </template>
 
 <script>
-import placeholder from "../assets/img/placeholder.jpg";
 import { excerptGenerator } from "../composables/excerptGenerator";
 import noImg from "../assets/img/noImg.svg";
 
@@ -81,10 +80,9 @@ export default {
   props: ["articleData", "category"],
   setup() {
     const handleClickCategory = (url) => {
-      // console.log("hello");
       localStorage.setItem("link", url);
     };
-    return { placeholder, excerptGenerator, noImg, handleClickCategory };
+    return { excerptGenerator, noImg, handleClickCategory };
   },
 };
 </script>

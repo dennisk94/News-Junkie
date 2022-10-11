@@ -14,7 +14,6 @@ const fetchQueryArticles = () => {
                 }
             });
             const newsData = await res.json()
-            console.log(newsData);
             // Guard clause if there are no matching articles for the query
             if ( newsData.totalResults.length === 0 ) {
                 alert('There were no matching results. Please try another search term.')

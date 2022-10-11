@@ -93,7 +93,6 @@
 </template>
 
 <script>
-import placeholder from "../assets/img/placeholder.jpg";
 import noImg from "../assets/img/noImg.svg";
 import { ref } from "vue";
 import { excerptGenerator } from "../composables/excerptGenerator";
@@ -107,7 +106,7 @@ export default {
       localStorage.setItem("link", url);
     };
 
-    return { placeholder, excerptGenerator, excerpt, noImg, handleClick };
+    return { excerptGenerator, excerpt, noImg, handleClick };
   },
 };
 </script>
