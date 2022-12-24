@@ -69,10 +69,7 @@
           rel="noreferrer noopener"
         >
           <img :src="headline.urlToImage" :alt="headline.title" />
-          <a
-            :href="'/article/' + headline.title"
-            class="featured-article-info-wrapper"
-          >
+          <a :href="headline.url" class="featured-article-info-wrapper">
             <h3 class="featured-article-title">
               {{ excerptGenerator(headline.title) }}
             </h3>

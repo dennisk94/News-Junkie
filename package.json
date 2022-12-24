@@ -1,6 +1,7 @@
 {
-  "name": "news",
+  "name": "news-junkie",
   "version": "0.1.0",
+  "homepage": "/news-junkie",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
