@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { APIKEY } from "@/globals/globals";
+// import { APIKEY } from "@/globals/globals";
 
 const fetchTopHeadlines = () => {
     const featuredHeadline = ref([])
@@ -11,7 +11,7 @@ const fetchTopHeadlines = () => {
             const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us`, {
                 headers: {
                     'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + APIKEY
+                    'Authorization': 'Bearer ' + process.env.API_KEY
                 }
             });
             const newsData = await res.json()
