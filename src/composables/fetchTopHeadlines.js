@@ -11,7 +11,7 @@ const fetchTopHeadlines = () => {
             const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us`, {
                 headers: {
                     'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + process.env.API_KEY
+                    'Authorization': 'Bearer ' + '16f6938cc5c14aa7ab3ef17f1d678d83'
                 }
             });
             const newsData = await res.json()
